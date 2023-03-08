@@ -1,4 +1,6 @@
 import { getRandom } from '../helpers/get-random'
+import Confetti from 'js-confetti'
+
 let tirada = 0
 let tiradas = []
 // uso de la función exportada getRandom para cambiar número
@@ -24,7 +26,9 @@ export function adivinelo() {
 
  if (numero === numeroRandom) {
   tirada = 10
-  document.getElementById('msg_aleatorio').textContent = `Ganaste!`
+  document.getElementById('msg_aleatorio').textContent = 'Ganaste!'
+  const confetti = new Confetti()
+  confetti.addConfetti()
   return
  } else if (numero > numeroRandom) {
   document.getElementById('msg_aleatorio').textContent = `El número es más pequeño. Tirada ${tirada + 1}`
